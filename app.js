@@ -63,4 +63,13 @@ function verificarChute() { // tudo o que tiver dentro do *verificarChute* é so
         
 }
 
-
+// se usa colchetes "[]" para fazer listas (array)
+// o primeiro sempre será o índice 0.... ex: [0,1,2]
+// ex:  let numeros = [7,10,22]
+//      numeros.length              (para saber a quantidade de índices se usa *length*)
+//      3
+//      numeros [0]                 (para pegar o índice em específico)
+//      7   
+//      
+//      
+// obs: para números, nao se usa aspas...apenas para nomes! ex: ["felipe","ana"]
