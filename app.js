@@ -1,5 +1,21 @@
 // programar o index usando o JavaScript
 // no index, as funções precisam dos parênteses para indicar que é uma função!! ex: <button onclick="verificarChute()"....
+
+// se usa colchetes "[]" para fazer listas (array)
+// o primeiro sempre será o índice 0.... ex: [0,1,2]
+//
+// ex:  let numeros = [7,10,22]
+//      numeros.length              (para saber a quantidade de índices se usa *length*)
+//      3
+//      numeros [0]                 (para pegar o índice em específico)
+//      7   
+//      
+//     let primeiro = numeros [0]                   (para pegar o primeiro)
+//     let ultimo = numeros [numeros.length - 1]    (para pegar o ultimo)
+//
+// obs: para números, nao se usa aspas...apenas para nomes! ex: ["felipe","ana"]
+let listaDeNumerosSorteados = []; // tem que ser na primeira linha para ser lido antes que tudo 
+
 let numeroSecreto = gerarNumeroAleatorio (); 
 let tentativas = 1;
 
@@ -7,8 +23,14 @@ exibirMensagemInicial (); // chamando a função em qualquer lugar para ela ser 
 
 // function = funções (function *nome* (*paramentro*) {})
 function gerarNumeroAleatorio () { 
-    return  parseInt (Math.random() * 10 + 1); // para retornar a função *parseInt..." 
-    
+    let numeroEscolhido = parseInt (Math.random() * 10 + 1);    
+    if (listaDeNumerosSorteados.includes(numeroEscolhido)) {      // *includes* função que verifica se o elemento está na lista
+        return gerarNumeroAleatorio();                           // para pedir que outro número seja gerado // *retornar a função gerarNumeroAleatorio*
+    } else { 
+        listaDeNumerosSorteados.push (numeroEscolhido); // para definir o que vai vir dentro da lista // *push* final da lista
+        console.log (listaDeNumerosSorteados)
+        return numeroEscolhido;  
+    }
 }
 
 function limparCampo() { // limpar o campo depois de chutar um numero
@@ -63,13 +85,3 @@ function verificarChute() { // tudo o que tiver dentro do *verificarChute* é so
         
 }
 
-// se usa colchetes "[]" para fazer listas (array)
-// o primeiro sempre será o índice 0.... ex: [0,1,2]
-// ex:  let numeros = [7,10,22]
-//      numeros.length              (para saber a quantidade de índices se usa *length*)
-//      3
-//      numeros [0]                 (para pegar o índice em específico)
-//      7   
-//      
-//      
-// obs: para números, nao se usa aspas...apenas para nomes! ex: ["felipe","ana"]
