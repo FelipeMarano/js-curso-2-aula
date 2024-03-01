@@ -15,7 +15,7 @@
 //
 // obs: para números, nao se usa aspas...apenas para nomes! ex: ["felipe","ana"]
 let listaDeNumerosSorteados = []; // tem que ser na primeira linha para ser lido antes que tudo 
-
+let numeroLimite = 10   // variavel para tornar dinamico 
 let numeroSecreto = gerarNumeroAleatorio (); 
 let tentativas = 1;
 
@@ -23,12 +23,18 @@ exibirMensagemInicial (); // chamando a função em qualquer lugar para ela ser 
 
 // function = funções (function *nome* (*paramentro*) {})
 function gerarNumeroAleatorio () { 
-    let numeroEscolhido = parseInt (Math.random() * 10 + 1);    
+    let numeroEscolhido = parseInt (Math.random() * numeroLimite + 1);
+    let quantidadeDeElementosNaLista = listaDeNumerosSorteados.length; // tamanho da lista
+    
+    if (quantidadeDeElementosNaLista == numeroLimite) {
+        listaDeNumerosSorteados = []            // quando atinge o limite da lista, ele limpa ela para zerar
+    }
+
     if (listaDeNumerosSorteados.includes(numeroEscolhido)) {      // *includes* função que verifica se o elemento está na lista
         return gerarNumeroAleatorio();                           // para pedir que outro número seja gerado // *retornar a função gerarNumeroAleatorio*
     } else { 
         listaDeNumerosSorteados.push (numeroEscolhido); // para definir o que vai vir dentro da lista // *push* final da lista
-        console.log (listaDeNumerosSorteados)
+        console.log (listaDeNumerosSorteados);
         return numeroEscolhido;  
     }
 }
